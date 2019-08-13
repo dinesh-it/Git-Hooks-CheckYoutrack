@@ -39,7 +39,7 @@ may configure it in a Git configuration file like this:
 
     # Refer: https://www.jetbrains.com/help/youtrack/standalone/Manage-Permanent-Token.html
     # to create a Bearer token
-    youtrack-token = "perm:ZGluZXNo.VGVzdCBBUEkgdG9rZW4=.7h2r4scx2qG5BPMUKUA4L7LzuRJpWU"
+    youtrack-token = "<your-token>"
 
     # Regular expression to match for Youtrack ticket id
     matchkey = '^((?:P|M)(?:AY|\d+)-\d+)'
@@ -181,7 +181,7 @@ sub check_ref {
 
 # =========================================================================== #
 
-=head3 B<add_youtrack_summary>
+=head3 B<prepare-commit-msg>
  
 This hook is invoked before a commit, to check if the current branch name start with 
 a valid youtrack ticket id and pre-populates the commit message with youtrack ticket: summary
