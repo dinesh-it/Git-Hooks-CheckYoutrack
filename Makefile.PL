@@ -28,7 +28,17 @@ WriteMakefile(
 		'URI::Builder' => 0,
 		'JSON::XS' => 0,
 	},
+	"TEST_REQUIRES" => {
+		"Config" => 0,
+		"Email::Sender::Transport::Mbox" => 0,
+		"Path::Tiny" => "0.060",
+		"Test::Requires::Git" => 0,
+		"lib" => 0
+	},
 	EXE_FILES                => [],
+	"test" => {
+		"TESTS" => "t/*.t"
+	},
 	clean => { FILES => 'Git-Hooks-CheckYoutrack-*' },
 	$ExtUtils::MakeMaker::VERSION >= 6.50 ? (%$meta_merge) : (),
 	($] >= 5.005 ?    ## Add these new keywords supported since 5.005

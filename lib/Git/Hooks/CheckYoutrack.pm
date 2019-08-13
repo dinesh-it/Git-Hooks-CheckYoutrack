@@ -92,7 +92,10 @@ sub check_commit_msg {
     $log->debug("Found Youtrack ticket id from message as: $yt_id");
 
     my $yt_ticket = _get_ticket($git, $yt_id);
-    $git->{yt_ticket} = $yt_ticket;
+
+    if (!$yt_ticket) {
+        return _show_error($git, "Youtrack ticket not found with ID: $yt_id");
+    }
 
     if ($yt_ticket && $git->get_config_boolean($CFG => 'print-info')) {
         print '-' x 80 . "\n";
@@ -102,10 +105,6 @@ sub check_commit_msg {
         print "Assigned to:     $yt_ticket->{Assignee}\n";
         print "Ticket Link:     $yt_ticket->{WebLink}\n";
         print '-' x 80 . "\n";
-    }
-
-    if (!$yt_ticket) {
-        return _show_error($git, "Youtrack ticket not found with ID: $yt_id");
     }
 
     return 0;
@@ -133,7 +132,7 @@ sub check_message_file {
 sub _show_error {
     my ($git, $msg) = @_;
     if ($git->get_config_boolean($CFG => 'required')) {
-        $git->fault($msg);
+        $git->fault("ERROR: $msg");
         return 1;
     }
     else {
