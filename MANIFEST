@@ -1,5 +1,6 @@
-MANIFEST
-Makefile.PL
-README.md
+Changes
 lib/Git/Hooks/CheckYoutrack.pm
+Makefile.PL
+MANIFEST
+README.md
 t/check-youtrack.t
