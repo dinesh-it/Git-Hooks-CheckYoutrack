@@ -12,8 +12,6 @@ may configure it in a Git configuration file like this:
        # Enable the plugin
        plugin = CheckYoutrack
 
-       plugins = ./lib/Git/Hooks
-
     [githooks "checkyoutrack"]
 
        # '/youtrack' will be appended to this host
@@ -27,17 +25,19 @@ may configure it in a Git configuration file like this:
        matchkey = '^((?:P|M)(?:AY|\d+)-\d+)'
 
        # Setting this flag will aborts the commit if valid Youtrack number not found
-       # Shows a warning message otherwise
+       # Shows a warning message otherwise - default false
        required = true 
 
        # Print the fetched youtrack ticket details like Assignee, State etc..,
+       # default false
        print-info = true
 
 # DESCRIPTION
 
 This plugin hooks the following git hooks to guarantee that every commit message 
 cites a valid Youtrack Id in the log message, so that you can be certain that 
-every commit message has a valid link to the Youtrack ticket.
+every commit message has a valid link to the Youtrack ticket. Refer [Git::Hooks Usage](https://metacpan.org/pod/Git::Hooks#USAGE) 
+for steps to install and use Git::Hooks
 
 This plugin also hooks prepare-commit-msg to pre-populate youtrack ticket sumary on the 
 commit message if the current working branch name is starting with the valid ticket number
@@ -49,7 +49,7 @@ commit message if the current working branch name is starting with the valid tic
 These hooks are invoked during the commit, to check if the commit message
 starts with a valid Youtrack ticket Id.
 
-### **prepare-commit-msg**
+## **prepare-commit-msg**
 
 This hook is invoked before a commit, to check if the current branch name start with 
 a valid youtrack ticket id and pre-populates the commit message with youtrack ticket: summary
