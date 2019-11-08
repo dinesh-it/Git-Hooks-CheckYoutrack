@@ -37,10 +37,11 @@ may configure it in a Git configuration file like this:
 
     # Refer: https://www.jetbrains.com/help/youtrack/standalone/Manage-Permanent-Token.html
     # to create a Bearer token
+    # You can also set YoutrackToken ENV instead of this config
     youtrack-token = "<your-token>"
 
     # Regular expression to match for Youtrack ticket id
-    matchkey = '^((?:P|M)(?:AY|\d+)-\d+)'
+    matchkey = "^((?:P)(?:AY|\\d+)-\\d+)"
 
     # Setting this flag will aborts the commit if valid Youtrack number not found
     # Shows a warning message otherwise - default false
