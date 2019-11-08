@@ -14,7 +14,7 @@ use LWP::UserAgent;
 use URI::Builder;
 use JSON::XS;
 
-$Git::Hooks::CheckYoutrack::VERSION = '1.0.1';
+$Git::Hooks::CheckYoutrack::VERSION = '1.0.2';
 
 =head1 NAME
 
